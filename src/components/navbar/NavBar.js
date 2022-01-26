@@ -1,10 +1,10 @@
-import { Container, Nav, Navbar, NavDropdown } from "react-bootstrap";
+import { Container, Nav, Navbar, NavDropdown, Button } from "react-bootstrap";
 import CartWidget from "../../icon/CartWidget";
 
 const NavBar = () => {
   return (
     
-    <Navbar bg="dark" expand="xxl" variant="dark">
+    <Navbar bg="dark" expand="xxl" variant="dark" sticky="top">
     <Container>
       <Navbar.Brand href="#home">APOLON</Navbar.Brand>
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
@@ -21,7 +21,9 @@ const NavBar = () => {
           </NavDropdown>
         </Nav>
       </Navbar.Collapse>
-      <CartWidget />
+      <Button variant="secondary" size="sm">
+        <CartWidget />
+      </Button>
     </Container>
   </Navbar>
   );

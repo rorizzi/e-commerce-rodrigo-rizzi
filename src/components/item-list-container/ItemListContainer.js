@@ -8,9 +8,6 @@ const items = [
   {id:"4", name: "Aire Acondicionado", price: "350", createdBy:"SmartLife"},
 ];
 
-//SOLO MANDAR LO QUE VAMOS A MOSTRAR ****
-
-//COMPONENTE CONTENEDOR
 const ItemListContainer = () => {
   //Hook para controlar el estado del componente
   const [selectedItem, setSelectedItem ] = useState(null) 
