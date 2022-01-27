@@ -9,7 +9,7 @@ const items = [
 ];
 
 const ItemListContainer = () => {
-  //Hook para controlar el estado del componente
+
   const [selectedItem, setSelectedItem ] = useState(null) 
 
   return (
