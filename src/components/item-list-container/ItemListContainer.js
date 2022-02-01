@@ -1,35 +1,32 @@
-import { useState } from "react";
-import Item from "../item/Item";
-
-const items = [
-  {id:"1", name: "Play Station 5", price: "1200", createdBy: "Sony"},
-  {id:"2", name: "Alienware", price: "3500", createdBy: "Dell"},
-  {id:"3", name: "Samsung Smart TV 55'", price: "900", createdBy: "Samsung"},
-  {id:"4", name: "Aire Acondicionado", price: "350", createdBy:"SmartLife"},
-];
+import { useState, useEffect } from "react";
+import { Spinner } from "react-bootstrap";
+import { getProds } from "../../data/products";
+import ItemList from "../item-list/ItemList";
 
 const ItemListContainer = () => {
 
-  const [selectedItem, setSelectedItem ] = useState(null) 
+  const [data, setData ] = useState([]) 
+  const [loading, setLoading] = useState(true)
 
+  useEffect(() => {
+    getProds
+      .then((res) => { 
+        if(res.length === 0) {
+          throw new Error('Array no valido');
+        }
+        setData(res)})
+      .catch((err) => console.log(err))
+      .finally(() => setLoading(false))
+      
+  }, []);
+  
   return (
-    <div>        
-        <h1>Lista de productos</h1>
-        <h3>Producto seleccionado</h3>
-        <p>{selectedItem ? selectedItem.name : ""}</p>
-        <p>{selectedItem ? `$${selectedItem.price}`  : ""}</p>
-        <p>{selectedItem ? selectedItem.id : ""}</p>
-        <hr/>
-        {items.map( ({id, name, price}) => ( 
-          <Item 
-            key={id}
-            id={id} 
-            name={name} 
-            price={price}
-            setSelectedItem={setSelectedItem} /> 
-        ))}
+    <div>
+    {loading ? <Spinner animation="border" variant="light" /> :  <ItemList products= {data} />}     
     </div>
     );
 };
 
 export default ItemListContainer;
+
+

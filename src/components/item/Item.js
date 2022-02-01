@@ -1,18 +1,23 @@
-import { Button } from "react-bootstrap";
+import { Button, Card } from "react-bootstrap";
 import ItemCount from "../item-count/ItemCount";
 
-const Item = ({id, name, price, setSelectedItem}) => {
-    const selectItem = () => setSelectedItem({name, price, id})
+const Item = ({prod}) => {
+    
+    const {id, image, title, description, price, stock} = prod
 
     return (
         <>
-            <h2>Nombre del producto: {name}</h2>
-            <h2>Precio del producto: {price}</h2>
-            <Button onClick={selectItem}>Seleccionar producto</Button>
-            <br />
-            <br />
-            <ItemCount />
-            <hr/>
+            <Card style={{ width: '18rem', margin: '20px'}}>
+                <Card.Img variant="top" src={image} alt="imagen" style={{ minHeight: '100px', width:"100%", height:"15vw" }}/>
+                <Card.Body>
+                    <Card.Title>{title}</Card.Title>
+                    <Card.Text>{description}</Card.Text>
+                    <Card.Text>${price}</Card.Text>
+                </Card.Body>
+                <Card.Footer>
+                    <Button variant="primary">Detalle de producto</Button>
+                </Card.Footer>
+            </Card>
         </>
     );
 };
