@@ -4,11 +4,14 @@ import Item from "../item/Item";
 const ItemList = ({ products }) => {
 
     return (
-    <div>
-                    
+    <div>                
             <Container style={{alignItems:'center', justifyContent: 'center'}}>
                 <Row>
-                 {products?.map(prod => <Item key={prod.id} prod={prod} />)}
+                 {products?.map(prod => 
+                 <div className="col-md-3">
+                    <Item key={prod.id} prod={prod} />
+                </div>
+                )}
                 </Row>
             </Container>
         

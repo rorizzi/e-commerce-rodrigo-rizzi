@@ -1,21 +1,20 @@
 import { Button, Card } from "react-bootstrap";
-import ItemCount from "../item-count/ItemCount";
 
 const Item = ({prod}) => {
     
-    const {id, image, title, description, price, stock} = prod
+    const {id, image, title, shortDescription, price, stock} = prod
 
     return (
         <>
-            <Card style={{ width: '18rem', margin: '20px'}}>
-                <Card.Img variant="top" src={image} alt="imagen" style={{ minHeight: '100px', width:"100%", height:"15vw" }}/>
-                <Card.Body>
-                    <Card.Title>{title}</Card.Title>
-                    <Card.Text>{description}</Card.Text>
-                    <Card.Text>${price}</Card.Text>
+            <Card bg="dark">
+                <Card.Img className="img'fluid" src={image} style={{ minHeight: '300px', width:"100%", height:"15vw"}}/>
+                <Card.Body >
+                    <Card.Title className="text-light">{title}</Card.Title>
+                    <Card.Text className="text-secondary">{shortDescription}</Card.Text>
+                    <Card.Text className="text-secondary">U$S{price}</Card.Text>
                 </Card.Body>
-                <Card.Footer>
-                    <Button variant="primary">Detalle de producto</Button>
+                <Card.Footer className="p-3">
+                    <Button  variant="outline-secondary">Detalle de producto</Button>
                 </Card.Footer>
             </Card>
         </>

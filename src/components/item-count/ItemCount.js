@@ -1,17 +1,24 @@
 import { useState } from 'react';
 import { Button } from 'react-bootstrap'
 
-const ItemCount = () => {
-    const [numbersOfItems, setNumbersOfItems] = useState(0)
+const ItemCount = (stock) => {
+    
+    const initial = 1;
+    const [numbersOfItems, setNumbersOfItems] = useState(initial)
+    console.log(stock)
 
     const addItem = () => {
-        if(numbersOfItems < 10) {
-            setNumbersOfItems(numbersOfItems + 1);
+        console.log(stock)
+        if(numbersOfItems < stock.stock) {
+            setNumbersOfItems(numbersOfItems + 1);            
+        }
+        else {
+            console.log('No entra al if')
         }
     }
 
     const removeItem = () => {
-        if(numbersOfItems > 0) {
+        if(numbersOfItems > initial) {
             setNumbersOfItems(numbersOfItems - 1);
         }
     }
@@ -19,9 +26,9 @@ const ItemCount = () => {
 
   return (
     <div>
-        <Button onClick={addItem}>+</Button>
-        <span>{numbersOfItems} </span>
-        <Button onClick={removeItem}>-</Button>
+        <Button variant='outline-secondary' style={{margin:'5px'}} onClick={removeItem}>-</Button>
+        <span className='text-light' style={{margin:'5px'}}>{numbersOfItems}</span>
+        <Button variant='outline-secondary' onClick={addItem}>+</Button>
     </div>);
 };
 
