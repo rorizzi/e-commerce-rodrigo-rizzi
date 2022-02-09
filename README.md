@@ -1,70 +1,50 @@
-# Getting Started with Create React App
+# APOLON E-Commerce #
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+ -  *APOLON tiene como finalidad ofrecer productos de calidad a los usuarios y con los mejores precios del mercado.*
+ -  *Con un diseño responsivo y adaptable tanto a su ordenador como a su smartphone, nos adentraremos a sus raíces y su funcionalidad en el siguiente documento.* 
 
-## Available Scripts
+### Levantando APOLON ###
 
-In the project directory, you can run:
+#### Correr nuestra app ####
 
-### `npm start`
+-  *Para correr nuestra app, es necesario escribir en la terminal el comando `npm start`*
+-  *Abrirá el navegador con una URL [http://localhost:3000]*
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
 
-### `npm test`
+### Aspecto visual de APOLON ###
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- *APOLON visualmente fue trabajado con componentes de React-Bootstrap, por ejemplo su barra de navegación o la presentación de los productos de forma individual*
+- *Para entrar mas en detalle, también se utilizó clases de bootstrap dentro de div's con el fin de darle un toque mas personalizado*
+- *Los colores utilizados, van de la mano de la tendencia mundial que existe con el* modo nocturno* *y el background gradient que busca ponerle la atención a cada tarjeta de producto*
+- *El diseño de las tarjetas de presentación de producto, fue pensado con la intención de restarle mérito al nombre del producto y así darle enfasis en la imagen del producto en sí*
 
-### `npm run build`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### Breve resumen de su funcionamiento ###
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+#### Barra de navegación ####
 
-### `npm run eject`
+- *Con su diseño muy simple, en ella podrás ver las categorías de prodcutos que APOLON ofrece, pudiendo filtrar por los mismos*
+- *También tendrás la sección de carrito, la cual aún no está definida, pero te permitirá ver todos los productos que selecciones, las cantidades correspondientes, y también finalizar la compra*
+- *Nuestro logo, también minimalista, te permitirá volver al landing principal de todos los productos que APOLON tiene para ofrecerte*
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+#### Tarjetas de presentación de prodcuto ####
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+- *Las mismas son sencillas, minimalistas, le dan enfasis a la imagen y buscan dar pocos detalles reales del producto en sí*
+- *Para ver mas detalles, podemos seleccionar el boton* * detalle de producto * *que también es el siguiente paso para comprarlo*
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+##### Detalle de producto #####
 
-## Learn More
+- *En esta sección, vamos a ver un texto mucho mas explicativo sobre el producto en si, chequear la disponibilidad de stock y agregarlo a nuestro carrito*
+- *Sobre el la sección de texto, veremos una descripción interesante sobre el producto, sos cualidades, etc*
+- *En la esquina veremos si contamos con stock disponible*
+- *Sobre el Footer de la tarjeta, encontramos la posibildidad de elegir la cantidad y agregar la misma al carrito, que luego veremos en el cart widget ubicado en la barra de navegación*
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### APOLON en el futuro próximo ###
 
-### Code Splitting
+- *Contaremos con nuevos features y posibildiades para que tu experiencia de compra de productos de calidad*
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+###### APOLON fue creado y diseñado por Rodrigo Rizzi ######

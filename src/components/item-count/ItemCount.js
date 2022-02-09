@@ -5,10 +5,8 @@ const ItemCount = (stock) => {
     
     const initial = 1;
     const [numbersOfItems, setNumbersOfItems] = useState(initial)
-    console.log(stock)
 
     const addItem = () => {
-        console.log(stock)
         if(numbersOfItems < stock.stock) {
             setNumbersOfItems(numbersOfItems + 1);            
         }

@@ -1,19 +1,19 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { useState, useEffect }  from 'react';
 import { Spinner } from 'react-bootstrap';
-//import { useParams } from 'react-router-dom'; Comentado para entrega de desafio 'Detalles de producto'
+import { useParams } from 'react-router-dom';
 import useProducts from '../../hooks/useProducts';
 import ItemDetail from '../item-detail/ItemDetail';
 
 const ItemDetailContainer = () => {
 
     const {data, loading} = useProducts();     
-    // const {id} = useParams() Comentado para entrega de desafio 'Detalles de producto' 
+    const {idItem} = useParams()  
     const [selectedItem, setSelectedItem] = useState(null);
 
     useEffect(() => {
       if(data.length > 0) {
-          const actualProduct = data.find((prod) => prod.id === '4' );
+          const actualProduct = data.find((prod) => prod.id === idItem );
           setSelectedItem(actualProduct);
       }    
     }, [data]);    
