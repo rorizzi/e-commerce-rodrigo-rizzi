@@ -16,7 +16,7 @@
 
 - *APOLON visualmente fue trabajado con componentes de React-Bootstrap, por ejemplo su barra de navegación o la presentación de los productos de forma individual*
 - *Para entrar mas en detalle, también se utilizó clases de bootstrap dentro de div's con el fin de darle un toque mas personalizado*
-- *Los colores utilizados, van de la mano de la tendencia mundial que existe con el* modo nocturno* *y el background gradient que busca ponerle la atención a cada tarjeta de producto*
+- *Los colores utilizados, van de la mano de la tendencia mundial que existe con el* modo nocturno *y el background gradient que busca ponerle la atención a cada tarjeta de producto*
 - *El diseño de las tarjetas de presentación de producto, fue pensado con la intención de restarle mérito al nombre del producto y así darle enfasis en la imagen del producto en sí*
 
 

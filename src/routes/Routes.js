@@ -1,4 +1,5 @@
 import { BrowserRouter, Routes as Switch, Route } from "react-router-dom";
+import Cart from "../components/cart/Cart";
 import ItemDetailContainer from "../components/item-detail-container/ItemDetailContainer";
 import ItemListContainer from "../components/item-list-container/ItemListContainer";
 import NavBar from "../components/navbar/NavBar";
@@ -14,6 +15,7 @@ const Routes = () => {
                 <Route exact path="/category/:idCategory" element={<ItemListContainer />} />
                 <Route exact path="/item/:idItem" element={<ItemDetailContainer />} />
                 <Route exact path="/category/:idCategory/item/:idItem" element={<ItemDetailContainer />} />
+                <Route exacxt path="/cart" element={<Cart />}/>
                 <Route exact path="/*" element={<NotFound />} />
             </Switch>
         </BrowserRouter>
