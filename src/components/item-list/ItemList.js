@@ -12,7 +12,7 @@ const ItemList = ({ products }) => {
                 <Container style={{alignItems:'center', justifyContent: 'center'}}>
                     <Row>
                      {products?.map(prod => 
-                     <div className="col-md-3">
+                     <div key={prod.id}className="col-md-3">
                         <Item key={prod.id} prod={prod} />
                     </div>
                     )}
@@ -26,7 +26,7 @@ const ItemList = ({ products }) => {
                 <Container style={{alignItems:'center', justifyContent: 'center'}}>
                     <Row>
                         {filterProducts.map(prod =>
-                            <div className="col-md-3">
+                            <div key={prod.id} className="col-md-3">
                                 <Item key={prod.id} prod={prod} />
                             </div>)}
                     </Row>

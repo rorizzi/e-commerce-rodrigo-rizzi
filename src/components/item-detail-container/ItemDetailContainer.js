@@ -16,7 +16,7 @@ const ItemDetailContainer = () => {
           const actualProduct = data.find((prod) => prod.id === idItem );
           setSelectedItem(actualProduct);
       }    
-    }, [data]);    
+    }, [data]);
 
     return (
         <div>   

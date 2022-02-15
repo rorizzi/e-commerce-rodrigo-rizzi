@@ -1,19 +1,21 @@
-import { useState } from 'react';
+import { useContext, useState } from 'react';
 import { Button, Card, Container, Alert } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
+import { CartContext } from '../../context/CartContext';
 import ItemCount from '../item-count/ItemCount';
 
 const ItemDetail = ({prod}) => {
 
   const {id, image, title, shortDescription, longDescription,  price, stock} = prod
-
+  const { onAdd } = useContext(CartContext);
   const [showAddBtn, setShowAddBtn] = useState(true)
-  const [prodToCart, setProdToCart] = useState([])
+  const [selectedQuantity, setSelectedQuantity] = useState(1)
 
-  const onAdd = (quantity) => {
+  const handleAddToCart = () => {
     setShowAddBtn(false)
-    setProdToCart({...prod, quantity: quantity});
+    onAdd(prod, selectedQuantity)            
   }
+
 
   return (
     <div className='d-flex justify-content-center align-items-center h-100'>
@@ -34,7 +36,7 @@ const ItemDetail = ({prod}) => {
                 <Card.Text className="text-secondary">U$S {price}</Card.Text>
             </Card.Body>
             <Card.Footer className="p-3">
-               {showAddBtn ? <ItemCount onAdd={onAdd}  stock={stock} />
+               {showAddBtn ? <ItemCount stock={stock} setSelectedQuantity={setSelectedQuantity} handleAddToCart={handleAddToCart} />
                 : 
                 <div className='btn-group btn-sm'>
                   <Link to='/'>

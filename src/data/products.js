@@ -38,7 +38,7 @@ const products = [
         price: 350, 
         category: 'home',
         stock: 40 
-    },    
+    }, 
 ];
 
 export const getProds = new Promise((resolve) => {

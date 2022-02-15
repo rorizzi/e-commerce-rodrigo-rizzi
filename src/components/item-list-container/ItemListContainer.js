@@ -11,7 +11,7 @@ const ItemListContainer = ({welcome}) => {
     <div>
       <h1>{welcome}</h1>
       <hr />
-    {loading ? <Spinner animation="border" variant="light" /> :  <ItemList products= {data} />}     
+      {loading ? <Spinner animation="border" variant="light" /> :  <ItemList products= {data} />}     
     </div>
     );
 };

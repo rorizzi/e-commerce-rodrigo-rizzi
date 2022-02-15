@@ -1,20 +1,26 @@
-import { useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { Button } from 'react-bootstrap'
+import { CartContext } from '../../context/CartContext';
 
-const ItemCount = ({stock, onAdd}) => {
+const ItemCount = ({stock, setSelectedQuantity, handleAddToCart}) => {
     
     const initial = 1;
-    const [quantity, setQuantity] = useState(initial)
+    const [counter, setCounter] = useState(initial)
 
+    useEffect(() => {
+      setSelectedQuantity(counter)
+    }, [counter])
+    
+    
     const addItem = () => {
-        if(quantity < stock) {
-            setQuantity(quantity + 1);            
+        if(counter < stock) {
+            setCounter(counter + 1);            
         }
     }
 
     const removeItem = () => {
-        if(quantity > initial) {
-            setQuantity(quantity - 1);
+        if(counter > initial) {
+            setCounter(counter - 1);
         }
     }
 
@@ -22,11 +28,11 @@ const ItemCount = ({stock, onAdd}) => {
   return (
     <div>
         <Button variant='outline-secondary' style={{margin:'5px'}} onClick={removeItem}>-</Button>
-        <span className='text-light' style={{margin:'5px'}}>{quantity}</span>
+        <span className='text-light' style={{margin:'5px'}}>{counter}</span>
         <Button variant='outline-secondary' onClick={addItem}>+</Button>
         <br />
         <br />
-        <Button onClick={() => onAdd(quantity)} variant="outline-secondary">Agregar al carrito</Button>
+        <Button onClick={() => handleAddToCart()} variant="outline-secondary">Agregar al carrito</Button>
     </div>);
 };
 
