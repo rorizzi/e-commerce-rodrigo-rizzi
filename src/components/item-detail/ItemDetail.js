@@ -36,7 +36,7 @@ const ItemDetail = ({prod}) => {
                 <Card.Text className="text-secondary">U$S {price}</Card.Text>
             </Card.Body>
             <Card.Footer className="p-3">
-               {showAddBtn ? <ItemCount stock={stock} setSelectedQuantity={setSelectedQuantity} handleAddToCart={handleAddToCart} />
+               {showAddBtn && stock > 0 ? <ItemCount stock={stock} setSelectedQuantity={setSelectedQuantity} handleAddToCart={handleAddToCart} />
                 : 
                 <div className='btn-group btn-sm'>
                   <Link to='/'>

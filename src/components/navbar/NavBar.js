@@ -1,12 +1,12 @@
 import { Container, Nav, Navbar, NavDropdown, Button } from "react-bootstrap";
 import { Link, NavLink } from "react-router-dom";
 import CartWidget from "../../icon/CartWidget";
-// import { useContext } from "react" Comentado para entrega de desafio CartContext
-// import { CartContext } from '../../context/CartContext'; Comentado para entrega de desafio CartContext
+import { useContext } from "react" 
+import { CartContext } from '../../context/CartContext'; 
 
 const NavBar = () => {
   
-  // const { isEmpty } = useContext(CartContext) Comentado para entrega de desafio CartContext
+  const { isEmpty } = useContext(CartContext)
 
   return (
     
@@ -37,11 +37,11 @@ const NavBar = () => {
           </NavDropdown>
         </Nav>
         <NavLink to="/cart">
-          {/* {isEmpty() ? '' : Comentado para entrega de desafio CartContext */} 
+          {isEmpty() ? '' : 
                             <Button variant="outline-secondary" size="sm">
                               <CartWidget />
                            </Button>
-          {/* }  Comentado para entrega de desafio CartContext*/}
+          } 
         </NavLink>
       </Navbar.Collapse>      
     </Container>
