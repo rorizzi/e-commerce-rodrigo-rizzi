@@ -1,6 +1,5 @@
-import { useContext, useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Button } from 'react-bootstrap'
-import { CartContext } from '../../context/CartContext';
 
 const ItemCount = ({stock, setSelectedQuantity, handleAddToCart}) => {
     

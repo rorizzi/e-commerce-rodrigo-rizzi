@@ -3,6 +3,19 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import { initializeApp } from "firebase/app";
+
+
+const firebaseConfig = {
+  apiKey: "AIzaSyDoT64-rmt8B6aFRfIjZIRAdzx0sRux8xQ",
+  authDomain: "ecommerce-rizzi.firebaseapp.com",
+  projectId: "ecommerce-rizzi",
+  storageBucket: "ecommerce-rizzi.appspot.com",
+  messagingSenderId: "623507720481",
+  appId: "1:623507720481:web:a32dde61483cb8df051660"
+};
+
+initializeApp(firebaseConfig);
 
 
 ReactDOM.render(

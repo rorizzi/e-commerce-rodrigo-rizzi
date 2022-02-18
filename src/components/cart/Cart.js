@@ -1,4 +1,4 @@
-import { useContext, useState } from 'react'
+import { useContext } from 'react'
 import { Button, Table } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import { CartContext } from '../../context/CartContext';
@@ -17,24 +17,39 @@ const Cart = () => {
           </Link>
         </div>
       :
-        <div className='container d-flex align-items-center justify-content-center h-100'>
-            <Table striped bordered hover variant='dark'>
-              <tbody>
-              {items.map(item  => 
-                <>
-                <tr>
-                  <td>
-                  <Button  variant="outline-secondary" onClick={() => removeItem(item.id)}>X</Button>   
-                  </td>
-                  <td> {item.title}</td>
-                  <td> U$S {item.price}</td>
-                </tr>
-                </>
-                )}
-              </tbody>  
-            </Table>
-            <h3>El monto total de todo es: U$S {totalAmount()}</h3>       
+        <>
+        <h3>Bienvenido al carrito</h3>
+        <div className='container align-items-center justify-content-center h-100' style={{marginTop: 100}}>
+            <div>
+              <Table striped hover size='sm' variant='dark' className='rounded'>
+                <tbody>
+                  <tr>
+                    <th>Nombre</th>
+                    <th>Descripcion</th>
+                    <th>Cantidad</th>
+                    <th>Precio</th>
+                    <th>Quitar del carrito</th>
+
+                  </tr>
+                  {items.map(item  => 
+                  <>
+                  <tr>                  
+                    <td> {item.title}</td>
+                    <td>{item.shortDescription}</td>
+                    <td>{item.quantity} </td>
+                    <td> U$S {item.price} (x{item.quantity})</td>
+                    <td>
+                    <Button  variant="outline-secondary" onClick={() => removeItem(item.id)}>X</Button>   
+                    </td>
+                  </tr>
+                  </>
+                  )}
+                </tbody>  
+              </Table>
+            </div>     
         </div>
+        <h3>{`Total  U$S${totalAmount()}`}</h3>
+        </>   
       }
     </>
   )
