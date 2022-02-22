@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import Item from "../item/Item";
 
 const ItemList = ({ products }) => {
+    
     const {idCategory} = useParams();
     const filterProducts = products.filter(({ category }) => category === idCategory);
 

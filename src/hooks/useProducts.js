@@ -1,19 +1,23 @@
 import { useEffect, useState } from 'react';
-import { getProds } from '../data/products';
+import { collection, getDocs, getFirestore } from 'firebase/firestore'
+
 
 const useProducts = () => {
+    
     
     const [data, setData ] = useState([])
     const [loading, setLoading] = useState(true)
     
     useEffect(() => {
-        getProds
-        .then((res) => { 
-          if(res.length === 0) {
-            throw new Error('Array no valido');
-          }
-          setData(res)})
-        .catch((err) => console.log('Error: ', err))
+
+      const db = getFirestore();
+      const productsCollection = collection(db, 'items')
+      
+      getDocs(productsCollection)
+        .then((snapshot) => {
+          setData(
+            snapshot.docs.map((prod) => ({...prod.data(), id: prod.id})))
+        })    
         .finally(() => setLoading(false))
       }, []);
 

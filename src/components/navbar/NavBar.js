@@ -25,7 +25,7 @@ const NavBar = () => {
               </NavLink> 
             </NavDropdown.Item>
             <NavDropdown.Item>
-              <NavLink to="category/tecnology" className='text-decoration-none text-dark'>              
+              <NavLink to="category/technology" className='text-decoration-none text-dark'>              
                   Tecnología                  
               </NavLink>  
             </NavDropdown.Item>

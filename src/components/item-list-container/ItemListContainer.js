@@ -6,7 +6,6 @@ import ItemList from "../item-list/ItemList";
 const ItemListContainer = ({welcome}) => {
 
   const {data, loading} = useProducts();
-  
   return (
     <div>
       <h1>{welcome}</h1>
