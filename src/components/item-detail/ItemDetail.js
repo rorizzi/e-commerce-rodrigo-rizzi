@@ -6,7 +6,7 @@ import ItemCount from '../item-count/ItemCount';
 
 const ItemDetail = ({prod}) => {
 
-  const {id, image, title, shortDescription, longDescription,  price, stock} = prod
+  const {image, title, longDescription,  price, stock} = prod
   const { onAdd } = useContext(CartContext);
   const [showAddBtn, setShowAddBtn] = useState(true)
   const [selectedQuantity, setSelectedQuantity] = useState(1)
@@ -43,7 +43,7 @@ const ItemDetail = ({prod}) => {
                     <Button  variant="outline-secondary" style={{marginRight: '10px'}}>Seguir comprando</Button>
                   </Link>
                   <Link to='/cart'>
-                    <Button  variant="outline-secondary">Terminar la compra</Button>
+                    <Button  variant="outline-secondary">Ir al carrito</Button>
                   </Link>
                 </div>
                } 

@@ -16,10 +16,7 @@ const ItemDetailContainer = () => {
         const db = getFirestore()
         const docRef = doc(db, 'items', idItem)
             getDoc(docRef).then((item) => {
-                setSelectedItem(({
-                    ...item.data(),
-                     id: item.id
-                    }))
+                setSelectedItem(({...item.data(), id: item.id}))
             })
 
     }, []);
