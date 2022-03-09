@@ -5,10 +5,10 @@ const Item = ({prod}) => {
     
     const {id, image, title, shortDescription, price} = prod
 
-    return (
+    return (                         
         <>
             <Card bg="dark">
-                <Card.Img className="img'fluid" src={image} style={{ minHeight: '300px', width:"100%", height:"15vw"}}/>
+                <Card.Img className="img-fluid" src={image} style={{ minHeight: '300px', width:"100%", height:"15vw", backgroundColor: "#fff"}}/>
                 <Card.Body >
                     <Card.Title className="text-light">{title}</Card.Title>
                     <Card.Text className="text-secondary">{shortDescription}</Card.Text>
@@ -18,7 +18,7 @@ const Item = ({prod}) => {
                     <Link to= {`item/${id}`}>
                         <Button  variant="outline-secondary">Detalle de producto</Button>
                     </Link>
-                </Card.Footer>
+                </Card.Footer>        
             </Card>
         </>
     );

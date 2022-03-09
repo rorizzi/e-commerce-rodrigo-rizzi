@@ -5,52 +5,54 @@ import { CartContext } from '../../context/CartContext';
 
 const Cart = () => {
 
-  const {items, removeItem, isEmpty, totalAmount} = useContext(CartContext)
+  const {items, removeItem, isEmpty, totalAmount, clear} = useContext(CartContext)
   
   return (
     <>
       {isEmpty() ?
-        <div className='container'> 
+        <div className='container-fluid'> 
           <h2>Oops.. nuestras fuentes nos informan que no tienes nada agregado al carrito, porque no pruebas volviendo al menu principal?</h2>
           <Link to='/' className="text-decoration-none">
             <Button variant="secondary">Vuelve al Inicio aqui</Button>
           </Link>
         </div>
       :
-        <>
-          <h3>Bienvenido al carrito</h3>
-          <div className='container align-items-center justify-content-center h-100' style={{marginTop: 100}}>
-            <div>
-              <Table striped hover size='sm' variant='dark' className='rounded'>
+        <>         
+          <div className='container' style={{marginTop: 50}}>
+            <div className='bg-dark p-5 rounded shadow-lg p-3 mb-5'>
+              <h3 className="mb-4"style={{color: "#fff"}}>Bienvenido al carrito</h3>
+              <Table hover size='sm' style={{backgroundColor: "#fff"}} className='rounded align-items-center justify-content-center'>
                 <tbody>
-                  <tr>
-                    <th>Nombre</th>
-                    <th>Descripcion</th>
-                    <th>Cantidad</th>
-                    <th>Precio</th>
-                    <th>Quitar del carrito</th>
-                  </tr>
-                    
+                                      
                     {items.map(item  => (                                    
                       <tr key={item.title}>                  
+                        <td style={{backgroundColor: "#fff"}}>
+                          <img alt={item.title} src={item.image} className="img-fluid" style={{maxWidth: 100}} />
+                        </td>
                         <td> {item.title}</td>
-                        <td>{item.shortDescription}</td>
-                        <td>{item.quantity} </td>
-                        <td> U$S {item.price} (x{item.quantity})</td>
+                        <td> U$S {item.price} 
+                          {item.quantity > 1 ? ` x ${item.quantity}` : ""} </td>
+                          
                         <td>
-                          <Button  variant="outline-secondary" onClick={() => removeItem(item.id)}>X</Button>   
+                          <Button className='rounded' size='sm' variant="outline-danger" onClick={() => removeItem(item.id)}>X</Button>   
                         </td>
                       </tr>
                    
-                    ))}
-                </tbody>  
+                    ))}                   
+                </tbody>               
               </Table>
-            </div>     
-          </div>
-          <h3>{`Total  U$S${totalAmount()}`}</h3>
-          <Link to= {`/cart/checkout`}>
-            <Button  variant="outline-secondary">Finalizar compra</Button>
-          </Link>
+              <span>                
+                <h4 style={{color: '#fff'}}>{`Total a pagar  U$S${totalAmount()}`}</h4>                                
+              </span>
+              <div className='btn-group btn-sm mt-3'>
+                <Button className="mr-5" variant='outline-danger' size='sm' onClick={clear}>Vaciar carrito</Button>
+                <Link to= {`/cart/checkout`}>
+                  <Button variant="outline-success" size='sm'>Finalizar compra</Button>
+                </Link>
+              </div>  
+            </div>    
+          </div>          
+          
         </>   
       }
     </>

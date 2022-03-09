@@ -6,8 +6,8 @@ import ItemCount from '../item-count/ItemCount';
 
 const ItemDetail = ({prod}) => {
 
-  const {image, title, longDescription,  price, stock} = prod
-  const { onAdd } = useContext(CartContext);
+  const {id, image, title, longDescription,  price, stock} = prod
+  const { onAdd, isInCart } = useContext(CartContext);
   const [showAddBtn, setShowAddBtn] = useState(true)
   const [selectedQuantity, setSelectedQuantity] = useState(1)
 
@@ -16,13 +16,12 @@ const ItemDetail = ({prod}) => {
     onAdd(prod, selectedQuantity)            
   }
 
-
   return (
     <div className='d-flex justify-content-center align-items-center h-100'>
         <Card className='shadow mb-5 rounded' bg="dark" style={{ width: '50rem', margin: '20px'}}>
             <div style={{backgroundColor: '#fff'}}>
               <Container style={{backgroundColor: '#fff' }}>
-                <Card.Img  variant="top" src={image} alt='' style={{ minHeight: '300px', width:"65%", height:"15vw"}}/>
+                <Card.Img  className='img-fluid' variant="top" src={image} alt='' style={{ minHeight: '300px', width:"65%", height:"15vw"}}/>
               </Container>
             </div>
             <Card.Body >
@@ -36,7 +35,7 @@ const ItemDetail = ({prod}) => {
                 <Card.Text className="text-secondary">U$S {price}</Card.Text>
             </Card.Body>
             <Card.Footer className="p-3">
-               {showAddBtn && stock > 0 ? <ItemCount stock={stock} setSelectedQuantity={setSelectedQuantity} handleAddToCart={handleAddToCart} />
+               {showAddBtn && stock > 0 && isInCart(id) === false ? <ItemCount stock={stock} setSelectedQuantity={setSelectedQuantity} handleAddToCart={handleAddToCart} />
                 : 
                 <div className='btn-group btn-sm'>
                   <Link to='/'>

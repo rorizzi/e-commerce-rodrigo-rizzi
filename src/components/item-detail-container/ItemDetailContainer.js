@@ -21,7 +21,6 @@ const ItemDetailContainer = () => {
 
     }, []);
 
-    console.log(selectedItem)
     return (
         <div>   
             <br />

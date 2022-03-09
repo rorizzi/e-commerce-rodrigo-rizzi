@@ -1,3 +1,4 @@
+import { doc, getFirestore, updateDoc } from "firebase/firestore"
 import { createContext, useState } from "react"
 
  export const CartContext = createContext()
@@ -9,9 +10,7 @@ export const CartProvider = ({ children }) => {
     
     const onAdd = (newItem, quantity) => {        
         if (isInCart(newItem.id)) return
-
-        newItem.stock = newItem.stock - quantity
-        newItem = {...newItem, quantity: quantity }
+        newItem = {...newItem, quantity: quantity}
         setItems([...items, newItem])                     
     }
 
@@ -45,6 +44,15 @@ export const CartProvider = ({ children }) => {
         return items.reduce((total, actual) => total + actual.quantity, 0)
     }
 
+    const updateStock = () => {
+        const db = getFirestore()
+        items.map((item) => {
+            // console.log(`el item ${item.title} actualiza su stock ${item.stock} - ${item.quantity}`)
+            const itemRef = doc(db, "items", item.id)
+            updateDoc(itemRef, {stock: item.stock - item.quantity})
+        })
+    }
+
     return (
         <CartContext.Provider 
             value={{
@@ -56,6 +64,7 @@ export const CartProvider = ({ children }) => {
                 isEmpty,
                 totalAmount,
                 numberOfItems,
+                updateStock,
             }}>
                 {children}
         </CartContext.Provider>
